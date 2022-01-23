@@ -1,0 +1,59 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        ['2022a', 'Administrative Officer', 'Daily Attendence Check',
+         new Date(2022,0,19,9), new Date(2022, 0, 19,9, 30), null, 100, null],
+        ['2022b', 'Design Team', 'Automate the solid work',
+         new Date(2022,0, 19,10,30), new Date(2022, 0, 22,5,30), null, 100, null],
+        ['2022c', 'Design Team Incharge', 'Conduct Daily  Status Meeting',
+         new Date(2022,0,19,15), new Date(2022, 0, 19,15,30), null, 100, null],
+        ['2022d', 'Developer', 'Add filter Option In The Task Manager',
+         new Date(2022, 0, 19,21), new Date(2022, 0, 24,18), null, 100, null],
+        ['2022e', 'Manual tester', 'Task The New Application 2.3',
+         new Date(2022, 0, 19,10), new Date(2022, 0, 22,17,30), null, 100, null],
+        ['2022f', 'Automation Tester', 'Automatic The APK Using Appium',
+         new Date(2022, 0, 19,10,30), new Date(2022, 0, 20,19,30), null, 100, null],
+        ['2022g', 'Design Team Incharge', 'Review Daily Task',
+         new Date(2022, 0, 19,18,30), new Date(2022, 0, 19,19), null, 100, null],
+        ['2022h', 'Developer Team Incharge', 'Conduct Daily Status Meeting',
+         new Date(2022, 0, 19,19,30), new Date(2022, 0, 19,20), null, 100, null],
+        ['2022i', 'Manager', 'Discuss About The Progress',
+         new Date(2022, 0, 19,20), new Date(2022, 0, 19,21), null, 100, null],
+        
+      ]);
+
+      var options = {
+        height: 600,
+        width:1350,
+        gantt: {
+          trackHeight: 50
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="chart_div"></div>
+</body>
+</html>
